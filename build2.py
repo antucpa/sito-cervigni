@@ -222,7 +222,7 @@ def page(fname,title,desc,body,extra_head=''):
 <meta property="og:description" content="{desc}">
 <meta property="og:type" content="website">
 <meta property="og:image" content="img/antonio.jpg">
-<link rel="canonical" href="https://antoniocervigni.it/{'' if fname=='index.html' else fname}">
+<link rel="canonical" href="https://www.antoniocervigni.it/{'' if fname=='index.html' else fname}">
 <meta name="google-site-verification" content="oAqAZoIw_TDVErMqa6pE4PqYRUx2FD87C9n0qi3HKB4" />
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="icon" href="favicon.ico" sizes="48x48">
@@ -275,7 +275,7 @@ band=f'''<div style="background:#1F3A3D;color:#F6F3EC"><div class="wrap" style="
 <div class="btns"><a class="btn btn2" style="background:#F6F3EC;color:#1F3A3D;border-color:#F6F3EC" href="tel:{TEL}">Chiama +39 351 866 6942</a><a class="btn btn2" style="border-color:#F6F3EC;color:#F6F3EC" href="{WA}">Scrivimi su WhatsApp</a><a class="btn btn2" style="border-color:#F6F3EC;color:#F6F3EC" href="{SUBJ}">Email</a></div>
 </div></div>
 '''
-jsonld='<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Dott. Antonio Cervigni - Psicologo e Psicoterapeuta","description":"Psicologo dello sviluppo e dell\'educazione, psicoterapeuta, psicodrammatista e psicoanalista a Pollenza (Macerata).","telephone":"+393518666942","email":"FORM_TARGET_EMAIL","address":{"@type":"PostalAddress","streetAddress":"Contrada Potenza 34, Fraz. Rotelli","addressLocality":"Pollenza","addressRegion":"MC","addressCountry":"IT"},"sameAs":["'+FB+'","'+IG+'","'+LI+'"]}</script>\n'
+jsonld='<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Dott. Antonio Cervigni - Psicologo e Psicoterapeuta","url":"https://www.antoniocervigni.it/","description":"Psicologo dello sviluppo e dell\'educazione, psicoterapeuta, psicodrammatista e psicoanalista a Pollenza (Macerata).","telephone":"+393518666942","email":"FORM_TARGET_EMAIL","address":{"@type":"PostalAddress","streetAddress":"Contrada Potenza 34, Fraz. Rotelli","addressLocality":"Pollenza","addressRegion":"MC","addressCountry":"IT"},"sameAs":["'+FB+'","'+IG+'","'+LI+'"]}</script>\n'
 # HOME
 hero=f'''<div class="wrap" style="padding-top: 48px; padding-bottom: 80px; flex-direction: row; flex-wrap: wrap; align-items: center; gap: 48px"><div style="flex: 1 1 480px; display: flex; flex-direction: column; gap: 28px">
 <div class="eyebrow">Psicologo e psicoterapeuta · Pollenza (MC)</div>
@@ -401,7 +401,7 @@ form_h='''<div class="wrap" id="modulo" style="padding-top: 24px; padding-bottom
 <input type="hidden" name="_subject" value="Richiesta dal sito antoniocervigni.it">
 <input type="hidden" name="_template" value="table">
 <input type="hidden" name="_captcha" value="false">
-<input type="hidden" name="_next" value="https://antoniocervigni.it/grazie.html">
+<input type="hidden" name="_next" value="https://www.antoniocervigni.it/grazie.html">
 <div><label for="f-nome">Nome *</label><input id="f-nome" name="nome" type="text" autocomplete="given-name" required maxlength="80"></div>
 <div><label for="f-cognome">Cognome *</label><input id="f-cognome" name="cognome" type="text" autocomplete="family-name" required maxlength="80"></div>
 <div><label for="f-email">Email *</label><input id="f-email" name="email" type="email" autocomplete="email" required maxlength="120"></div>
@@ -534,8 +534,8 @@ page('privacy.html',"Informativa sulla privacy · Antonio Cervigni","Informativa
 
 _pages=sorted(f for f in os.listdir(OUT) if f.endswith('.html') and f!='grazie.html')
 _pr={'index.html':'1.0','test-sis.html':'0.8','formazione.html':'0.7','come-lavoro.html':'0.8','chi-sono.html':'0.8','contatti.html':'0.8','psicodramma.html':'0.8'}
-open(OUT+'sitemap.xml','w',encoding='utf-8').write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+''.join('<url><loc>https://antoniocervigni.it/%s</loc><lastmod>2026-11-12</lastmod><priority>%s</priority></url>\n'%('' if f=='index.html' else f,_pr.get(f,'0.6')) for f in _pages)+'</urlset>\n')
-open(OUT+'robots.txt','w').write('User-agent: *\nAllow: /\nDisallow: /grazie.html\n\nSitemap: https://antoniocervigni.it/sitemap.xml\n')
+open(OUT+'sitemap.xml','w',encoding='utf-8').write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+''.join('<url><loc>https://www.antoniocervigni.it/%s</loc><lastmod>2026-11-12</lastmod><priority>%s</priority></url>\n'%('' if f=='index.html' else f,_pr.get(f,'0.6')) for f in _pages)+'</urlset>\n')
+open(OUT+'robots.txt','w').write('User-agent: *\nAllow: /\nDisallow: /grazie.html\n\nSitemap: https://www.antoniocervigni.it/sitemap.xml\n')
 print('built')
 
 # SCRITTI
