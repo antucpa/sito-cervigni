@@ -536,6 +536,13 @@ _pages=sorted(f for f in os.listdir(OUT) if f.endswith('.html') and f!='grazie.h
 _pr={'index.html':'1.0','test-sis.html':'0.8','formazione.html':'0.7','come-lavoro.html':'0.8','chi-sono.html':'0.8','contatti.html':'0.8','psicodramma.html':'0.8'}
 open(OUT+'sitemap.xml','w',encoding='utf-8').write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+''.join('<url><loc>https://www.antoniocervigni.it/%s</loc><lastmod>2026-11-12</lastmod><priority>%s</priority></url>\n'%('' if f=='index.html' else f,_pr.get(f,'0.6')) for f in _pages)+'</urlset>\n')
 open(OUT+'robots.txt','w').write('User-agent: *\nAllow: /\nDisallow: /grazie.html\n\nSitemap: https://www.antoniocervigni.it/sitemap.xml\n')
+open(OUT+'.htaccess','w').write('''RewriteEngine On
+
+# Forza https e dominio con www su un unico indirizzo canonico
+RewriteCond %{HTTP_HOST} ^antoniocervigni\\.it$ [NC,OR]
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://www.antoniocervigni.it/$1 [L,R=301]
+''')
 print('built')
 
 # SCRITTI
