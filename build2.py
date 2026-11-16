@@ -538,9 +538,8 @@ open(OUT+'sitemap.xml','w',encoding='utf-8').write('<?xml version="1.0" encoding
 open(OUT+'robots.txt','w').write('User-agent: *\nAllow: /\nDisallow: /grazie.html\n\nSitemap: https://www.antoniocervigni.it/sitemap.xml\n')
 open(OUT+'.htaccess','w').write('''RewriteEngine On
 
-# Forza https e dominio con www su un unico indirizzo canonico
-RewriteCond %{HTTP_HOST} ^antoniocervigni\\.it$ [NC,OR]
-RewriteCond %{HTTPS} off
+# Porta il dominio senza www su quello con www (indirizzo canonico)
+RewriteCond %{HTTP_HOST} ^antoniocervigni\\.it$ [NC]
 RewriteRule ^(.*)$ https://www.antoniocervigni.it/$1 [L,R=301]
 ''')
 print('built')
